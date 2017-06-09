@@ -1,18 +1,10 @@
-var doSearch = function(array, targetValue) {
-var min = 0;
-var max = array.length - 1;
-var guess;
-
-while(min <= max){
-guess= Math.floor((max + min)/2);
-
-if(array[guess]===targetValue){
-return guess;
+function findBinary(arr, neddle) { 
+var min = 0, 
+max = arr.length - 1;
+while (min <= max){
+var guess = Math.floor((min+max) / 2);
+if (arr[guess] === neddle ) return guess;
+(arr[guess] < neddle) ? min = guess + 1 : max = guess - 1;
 }
-else if(array[guess] < targetValue ) {
-min = guess + 1; 
-}
-else{
-max = guess - 1;
-}
+return -1;
 }
